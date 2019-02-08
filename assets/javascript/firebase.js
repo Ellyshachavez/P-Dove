@@ -12,4 +12,31 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-var provider = new firebase.auth.GoogleAuthProvider();
+$("#sign-in").on("click", function(){
+
+    var email = $("#email-input").val();
+    var password = $("#password-input").val();
+    console.log(email);
+
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+    });
+});
+
+$("#new-account").on("click", function(){
+
+    var newEmail = $("#new-email").val();
+    var newPassword = $("#new-password").val();
+    console.log(newEmail);
+
+    firebase.auth().createUserWithEmailAndPassword(newEmail, newPassword).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+    });
+});
+
