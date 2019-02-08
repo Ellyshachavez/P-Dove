@@ -1,9 +1,7 @@
-
 var key = "11482244-d75f6775f0b5a86ee7680f6b7";
 var queryInput = "puppies"
 var search_query = "&q=" + queryInput;
 var queryURL = "https://pixabay.com/api/videos/?key=" + key + search_query;
-
 
 $.ajax({
     url: queryURL,
