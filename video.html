@@ -27,17 +27,17 @@
            <div>
               <ul class="nav nav-pills nav-fill">
                   <li class="nav-item">
-                    <a class="nav-link active" href="./Sounds/index.html">Sounds</a>
+                    <a class="nav-link" href="./index.html">Sounds</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./video.html">Videos</a>
+                    <a class="nav-link active" href="./video.html">Videos</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="./images.html">Images</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="./favorites.html">Favorites</a>
-                    </li>
+                        <a class="nav-link" href="./favorites.html">Favorites</a>
+                      </li>
                 </ul>
            </div>
             <form class="mx- auto my-auto d-inline w-100">
@@ -52,14 +52,8 @@
             </form>
           </main>
 
-
-          <div class="ui divided items">
-              <div class="item">
-                <div class="ui tiny image" id = "IMG"> </div>
-                <div class="middle aligned content" id = "SONG"> </div>
-            </div>
-      
-        </div>
+          <div id="pixaVid"></div>
+         
 
       
         <footer class="mastfoot mt-auto">
@@ -69,34 +63,17 @@
         </footer>
       </div>
 
-      <div>This is test code
-        <form>
-          Email:<br>
-          <input id="new-email" type="text" name="firstname"><br>
-          Password:<br>
-          <input id="new-password" type="text" name="lastname">
-        </form>
-        <button id="new-account">Submit</button>
-      </div>
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 
-
+  
 
     <!-- scripts -->
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/javascript/pixaBay.js"></script>
-  <script src="assets/javascript/firebase.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/javascript/pixaBay.js"></script>
-  <script src="Sounds/assets/javascript/script.js"></script>
-  <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/pixaBay.js"></script>
+    <script src="Sounds/assets/javascript/script.js"></script>
+    <script>
     
     $(".nav .nav-link").on("click", function(){
       $(".nav").find(".active").removeClass("active");
@@ -104,6 +81,5 @@
     });
 
     </script>
-
 </body>
 </html>
