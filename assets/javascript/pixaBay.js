@@ -9,7 +9,7 @@ $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function(response){
-    var $video = $("<video autoplay loop>");
+    var $video = $("<video autoplay loop controls>");
     $video.attr("width", 400);
     $video.attr("height", 480);
     var $source = $("<source>");
