@@ -35,6 +35,11 @@ var item = $("<div>").addClass("item")
   var songReady = $("<div>").addClass("middle aligned content")
   songReady.append(newSong);
 
+  var favorites = $("<button>")
+  favorites.addClass("favbutton")
+  favorites.text("Add.")
+  favorites.attr("url", element.previewURL)
+
 
   var newPic = $("<img>").attr("src", element.image);
   var imgReady = $("<div>").addClass("ui tiny image")
@@ -47,11 +52,16 @@ var item = $("<div>").addClass("item")
 
  item.append(imgReady);
  item.append(songReady);
+ item.append(favorites);
  item.append(textBox);
 
   $(".items").prepend(item);
 
       });
     });
+  });
+  
+    $(document).on("click", ".favbutton", function() {
+      console.log($(this).attr("url"))
   });
 });
