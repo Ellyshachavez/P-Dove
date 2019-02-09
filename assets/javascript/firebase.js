@@ -20,6 +20,7 @@ $("#sign-in").on("click", function(){
 
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
+        console.log("Sign In Failed");
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
@@ -34,6 +35,7 @@ $("#new-account").on("click", function(){
 
     firebase.auth().createUserWithEmailAndPassword(newEmail, newPassword).catch(function(error) {
         // Handle Errors here.
+        console.log("Created User Failed");
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
