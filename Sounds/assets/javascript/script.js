@@ -23,12 +23,13 @@ newArr = [];
       previewURL : response.results[ii].tracks[0].audio,
     }
     newArr.push(tempArr)
+  
 };
 console.log(newArr)
 
 newArr.forEach((element) => {
 
-var item = $("<div>").addClass("item")
+var item = $('<div class="card" style="width: 30rem; float:left">');
 
   var newSong = $("<audio controls>")
   newSong.append($("<source>").attr("src", element.previewURL));
