@@ -15,11 +15,24 @@
 
 </head>
 <body>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" href="#"><div class="inner">
+              <h3 class="masthead-brand" id="better-vibes">Better Vibes</h3>
+            </div></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Music</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Videos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
-          <div class="inner">
-            <h3 class="masthead-brand" id="better-vibes">Better Vibes</h3>
-          </div>
         </header>
       
         <main role="main" class="inner cover">
@@ -81,18 +94,18 @@
             </button>
           </div>
           <div class="modal-body">
-              <label for="email" id="label-modal"></br>Username:</br></label> 
-              <input type ="text" placeholder="Enter Email" name="email" required id="email-input placeholder-one"> 
+              <label for="email" id="label-modal"></br>E-Mail:</br></label> 
+              <input type ="text" placeholder="Enter Email" name="email" required id="email-input user-email"> 
             </br>
               <label for="password" id="label-modal">Password:</br></label>               
-              <input type ="password" placeholder="Enter Password" name="password" required id="pw-input placeholder2"> 
+              <input type ="password" placeholder="Enter Password" name="password" required id="pw-input user-pw"> 
             </br>
-              <label for="confirm-password" id="label-modal">Confirm-password:</label> 
-              <input type ="password" placeholder="Confirm password" name="confirm-password" required id="confirm-input placeholder3">
+              <label for="confirm-password" id="label-modal hide-pw">Confirm-password:</label> 
+              <input type ="password" placeholder="Confirm password" name="confirm-password" required id="confirm-input placeholder-three">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal" id="register">Register</button>
-              <button type="button" class="btn btn-primary">Signin</button>
+              <button type="button" class="btn btn-primary" id="user">Signin</button>
             </div>
           </div>
         </div>
