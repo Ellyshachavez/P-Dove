@@ -1,22 +1,35 @@
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyDKZHJUC4t7iMUQyOer4trD2cP_Ib-L33k",
-    authDomain: "better-vibe.firebaseapp.com",
-    databaseURL: "https://better-vibe.firebaseio.com",
-    projectId: "better-vibe",
-    storageBucket: "better-vibe.appspot.com",
-    messagingSenderId: "159333884702"
-};
-
-firebase.initializeApp(config);
-
-var database = firebase.database();
-
+var database;
 var email;
 var password;
 var userId;
 var videos = [];
+var audio = [];
 
+// On ready document, connect to firebase and log user out
+$( document ).ready(function() {
+  console.log( "ready!" );
+  // Initialize Firebase
+  var config = {
+      apiKey: "AIzaSyDKZHJUC4t7iMUQyOer4trD2cP_Ib-L33k",
+      authDomain: "better-vibe.firebaseapp.com",
+      databaseURL: "https://better-vibe.firebaseio.com",
+      projectId: "better-vibe",
+      storageBucket: "better-vibe.appspot.com",
+      messagingSenderId: "159333884702"
+  };
+  
+  firebase.initializeApp(config);
+  
+  database = firebase.database();
+
+  firebase.auth().signOut().then(function() {
+    console.log("Sign-out successful.");
+  }).catch(function(error) {
+    console.log("An error happened.");
+  });
+});
+
+// Sign user in
 $("#sign-in").on("click", function(){
 
     email = $("#user-email").val();
@@ -46,6 +59,8 @@ $("#sign-in").on("click", function(){
     });
 });
 
+
+// Create a new Account
 $("#new-account").on("click", function(){
 
     var newEmail = $("#email-input").val();
@@ -75,6 +90,7 @@ $("#new-account").on("click", function(){
     
 });
 
+// Populate user videos
 $("#populate").on("click", function(){
     firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
         console.log(snapshot.val());
@@ -82,12 +98,41 @@ $("#populate").on("click", function(){
     });
 });
 
-$("#addData").on("click", function(){
-    var testData = $("#newData").val();
+// Populate user audio
+$("#populate").on("click", function(){
+  firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+      console.log(snapshot.val());
+      $("#data-box").text(snapshot.val().audio);
+  });
+});
+
+// Adds video Data to firebase
+$("#addVideo").on("click", function(){
+    var testData = $("#newData").val(); // Needs to add video
     videos.push(testData);
     console.log(testData);
     console.log("HERE");
     firebase.database().ref('users/' + userId).set({
         videos: videos
     });
+});
+
+// Adds audio Data to firebase
+$("#addAudio").on("click", function(){
+  var testData = $("#newData").val(); // Needs to add video
+  audio.push(testData);
+  console.log(testData);
+  console.log("HERE");
+  firebase.database().ref('users/' + userId).set({
+      audio: audio
+  });
+});
+
+// Logs user out of firebase
+$("#signOut").on("click", function(){
+  firebase.auth().signOut().then(function() {
+    console.log("Sign-out successful.");
+  }).catch(function(error) {
+    console.log("An error happened.");
+  });
 });
