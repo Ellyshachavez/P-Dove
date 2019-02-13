@@ -1,26 +1,20 @@
 console.log("connected modal");
 
-    var button = $("#user-model")
+    var popUp = $("#user-model")
     var user = $("#user");
     var register = $("#register");
     var confirmPw = $("#hide-pw")
 
     $(document).ready(function(){
-<<<<<<< HEAD
-        confirmPw.hide();
-        button.on("click", function(event) {
-            event.preventDefault();
-         
-=======
-        $("#user-model").hide();
     });
 
-    button.on("click", function(event) {
+    popUp.on("click", function(event) {
       event.preventDefault();
-      $("#user-model").show();
+      confirmPw.hide();
+
 
         
-      addUser.on("click", function(register){
+      register.on("click", function(register){
           submit.preventDefault();
         var $email = $("#email-input").val().trim();
         var $pw = $("#pw-input").val().trim();
@@ -30,7 +24,6 @@ console.log("connected modal");
         console.log($confirm);
       })
 
->>>>>>> master
       
               
             register.on("click", function(register){
@@ -47,6 +40,5 @@ console.log("connected modal");
             
       
           });
-    });
 
     

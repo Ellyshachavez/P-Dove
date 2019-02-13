@@ -7,13 +7,15 @@ body {
 }
 
 img {
-   margin-left: 15px;
-   margin-top: 20px;
+    display: block;
+    text-align: center;
+    
 }
 
 .item {
     height: 180px;
     margin:10px;
+
 }
 h3 {
     color: white;
@@ -95,3 +97,6 @@ audio {
     border: 3px solid lime;
 }
 
+div {
+    margin: 10px;
+}

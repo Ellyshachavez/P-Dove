@@ -22,11 +22,11 @@ body {
   background-color:white;
 }
 
-body {
+h3 {
   /* display: -ms-flexbox; */
   /* display: flex; */
   color: #fff;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  /* text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5); */
   /* box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5); */
 }
 
@@ -181,3 +181,18 @@ body {
   position: fixed;
 }
 
+#sticky {
+  padding-left: 68em;
+  position: sticky
+  
+}
+
+input {
+  margin-left: 10%;
+  float: right;
+  text-align: center;
+}
+
+#label-modal {
+  color: black;
+}

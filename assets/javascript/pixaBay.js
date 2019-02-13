@@ -18,13 +18,15 @@ $(document).ready(function() {
                 $video.attr("width", 300);
                 $video.attr("height", 180);
 
+                var card = $('<div class="card" style="width: 20rem; float:left">');
                 var $source = $("<source>");
                 $source.attr("src", response.hits[i].videos.large.url);
                 $source.attr("type", "video/mp4");
                 $video.append($source);
-
                 console.log(response.hits[i].videos.large.url);
-                $("#pixaVid").append($video);
+                var div = card.append($video)
+                $("#pixaVid").append(div);
+
             }
         });
     });
