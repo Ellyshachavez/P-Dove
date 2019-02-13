@@ -9,7 +9,6 @@ $(document).ready(function() {
         var search_query = "&q=" + queryInput;
         var queryURL = "https://pixabay.com/api/videos/?key=" + key + search_query;
 
-
         $.ajax({
             url: queryURL,
             method: "GET"
