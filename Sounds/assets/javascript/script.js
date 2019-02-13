@@ -35,6 +35,13 @@ var item = $("<div>").addClass("item")
   var songReady = $("<div>").addClass("middle aligned content")
   songReady.append(newSong);
 
+  var favorites = $("<button>")
+  favorites.addClass("favbutton")
+  favorites.text("Add.")
+  favorites.attr("url", element.previewURL)
+  favorites.attr("img", element.image)
+  favorites.attr("name", element.name)
+
 
   var newPic = $("<img>").attr("src", element.image);
   var imgReady = $("<div>").addClass("ui tiny image")
@@ -47,6 +54,7 @@ var item = $("<div>").addClass("item")
 
  item.append(imgReady);
  item.append(songReady);
+ item.append(favorites);
  item.append(textBox);
 
   $(".items").prepend(item);
@@ -54,4 +62,46 @@ var item = $("<div>").addClass("item")
       });
     });
   });
+
+  var database = firebase.database();
+
+  let favSONG = {
+    url: ($(this).attr("url")),
+    img: ($(this).attr("img")),
+    name: ($(this).attr("name"))
+  };
+      // Initial Values
+      var url = '';
+      var img = '';
+      var name = '';
+
+      // Capture Button Click
+      $(document).on("click", ".favbutton", function() {
+        event.preventDefault();
+
+        // Grabbed values from text-boxes
+        url = ($(this).attr("url")),
+        name = $(this).attr("name"),
+        img =  $(this).attr("img")
+    
+        // Code for "Setting values in the database"
+      var newFav = {
+          url: url,
+          name: name,
+          img: img,
+        };
+      // Firebase watcher + initial loader HINT: .on("value")
+      database.ref().push(newFav) 
+        'value',
+        function(snapshot) {
+          // Log everything that's coming out of snapshot
+          console.log(snapshot.val());
+
+      $("#url").val("")
+      $("#name").val("")
+      $("#img").val("")
+
+    };
+  });
 });
+

@@ -1,90 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Better Vibe</title>
-  <!-- Bootstrap CSS-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-  
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Free Sounds</title>
+    <link rel = "stylesheet" href = "../P-Dove/Sounds/assets/css/reset.css">
+    <link rel = "stylesheet" href = "../P-Dove/Sounds/assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="../P-Dove/Sounds/assets/javascript/script.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="masthead mb-auto">
-          <div class="inner">
-            <h3 class="masthead-brand">Better Vibes</h3>
-          </div>
-        </header>
-      
-        <main role="main" class="inner cover">
-          <h1 class="cover-heading">Better Vibes Creator</h1>
-           <div>
-              <ul class="nav nav-pills nav-fill">
-                  <li class="nav-item">
-                    <a class="nav-link" href="./Sounds/index.html">Sounds</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./video.html">Videos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./images.html">Images</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link active" href="./favorites.html">Favorites</a>
-                    </li>
-                </ul>
-           </div>
-            <form class="mx- auto my-auto d-inline w-100">
-                <div class="input-group">
-                    <input type="text" id="search-me" class="form-control border border-right-0" placeholder="Search images & sounds">
-                    <span class="input-group-append">
-                    <button class="btn btn-outline-secondary border border-left-0" type="button">
-                        <i class="fa fa-search" id="search-it">Search</i>
-                    </button>
-                  </span>
-                </div>
-            </form>
-          </main>
+    <header>
+        <nav class="navbar navbar-light bg-light">
+                <form class="form-inline">
+                  <input class="form-control mr-sm-2" type="search" id = "search-me" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" id = "search-it" type="submit">Search</button>
+                    <a class="btn btn-outline-success my-2 my-sm-0"
+                            id = "go-back" href="../P-Dove/index.html"> Back to Home!
+                    </a>
+                    <a class="btn btn-outline-success my-2 my-sm-0"
+                            id = "go-back" href="../P-Dove/Sounds/index2.html"> Sounds!
+                    </a>
+                </form>
+        </nav>
+  </header>
+  <br>
+  <div class = "title1">
+    <p>Favorite Songs</p>
+  </div>
+   <br>
+<div class = "body1">
+    <div class="ui divided items" id="favpage">
+</div>
 
 
-          <div class="ui divided items">
-              <div class="item">
-                <div class="ui tiny image" id = "IMG"> </div>
-                <div class="middle aligned content" id = "SONG"> </div>
-            </div>
-      
-        </div>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
+  var config = {
+    apiKey: "AIzaSyAXy1zsnkj_nk7fnIMGrWgAIIuOGcwan_M",
+    authDomain: "project-999a2.firebaseapp.com",
+    databaseURL: "https://project-999a2.firebaseio.com",
+    projectId: "project-999a2",
+    storageBucket: "project-999a2.appspot.com",
+    messagingSenderId: "880098285603"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
 
-      
-        <footer class="mastfoot mt-auto">
-          <div class="inner">
-            <p>2019 Better Vibes Copyright</p>
-          </div>
-        </footer>
-      </div>
+  firebase.database().ref().on("child_added", (snapshot) => {
+  
+  
+      var item1 = $("<div>").addClass("item")
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
-
-
-    <!-- scripts -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/javascript/pixaBay.js"></script>
-    <script src="Sounds/assets/javascript/script.js"></script>
-    <script>
+      var newSong1 = $("<audio controls>")
+      newSong1.append($("<source>").attr("src", snapshot.val().url));
+      var songReady1 = $("<div>").addClass("middle aligned content")
+      songReady1.append(newSong1);
     
-    $(".nav .nav-link").on("click", function(){
-      $(".nav").find(".active").removeClass("active");
-      $(this).addClass("active");
-    });
+    
+      var newPic1 = $("<img>").attr("src", snapshot.val().img);
+      var imgReady1 = $("<div>").addClass("ui tiny image")
+      imgReady1.append(newPic1);
+    
+    
+      var texT1 = $("<h3>").text(snapshot.val().name)
+      var textBox1 = $("<div>").addClass("ui black1 message")
+      textBox1.append(texT1);
+    
+     item1.append(imgReady1);
+     item1.append(songReady1);
+     item1.append(textBox1);
 
-    </script>
+     console.log(item1)
+    
+      $("#favpage").prepend(item1);
+  });
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>
