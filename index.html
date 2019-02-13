@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Better Vibe</title>
   <!-- Bootstrap CSS-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   
 
   <!-- Custom CSS -->
@@ -18,34 +18,39 @@
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
           <div class="inner">
-            <h3 class="masthead-brand">Better Vibes</h3>
+            <h3 class="masthead-brand" id="better-vibes">Better Vibes</h3>
           </div>
         </header>
       
         <main role="main" class="inner cover">
-          <h1 class="cover-heading">Better Vibes Creator</h1>
-           <div>
+          <h1 class="cover-heading" id="better-vibes">Better Vibes Creator</h1>
+          <div>
               <ul class="nav nav-pills nav-fill">
                   <li class="nav-item">
+
                     <a class="nav-link active" href="./Sounds/index2.html">Sounds</a>
+
+                    <a class="nav-link" href="" data-toggle="modal" data-target="#user-model">Sounds</a>
+
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./video.html">Videos</a>
+                    <a class="nav-link" href="./video.html" data-toggle="modal" data-target="#user-model">Videos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./images.html">Images</a>
+                    <a class="nav-link" href="./images.html" data-toggle="modal" data-target="#user-model">Images</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="./favorites.html">Favorites</a>
+                      <a class="nav-link" href="./favorites.html" data-toggle="modal" data-target="#user-model">Favorites</a>
                     </li>
                 </ul>
            </div>
+
             <form class="mx- auto my-auto d-inline w-100">
                 <div class="input-group">
                     <input type="text" id="search-me" class="form-control border border-right-0" placeholder="Search images & sounds">
                     <span class="input-group-append">
                     <button class="btn btn-outline-secondary border border-left-0" type="button">
-                        <i class="fa fa-search" id="search-it">Search</i>
+                        <i class="fa fa-search" id="search-it" data-toggle="modal" data-target="#user-model">Search</i>
                     </button>
                   </span>
                 </div>
@@ -69,43 +74,48 @@
         </footer>
       </div>
 
-      <div>Create a new user
-        <form>
-          Email:<br>
-          <input id="new-email" type="text" name="firstname"><br>
-          Password:<br>
-          <input id="new-password" type="text" name="lastname">
-        </form>
-        <button id="new-account">Submit</button>
+<!-- Signin Register Modal -->
+<div class="modal fade" id="user-model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle header-modal">Sign in or Register</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <label for="email" id="label-modal"></br>Username:</br></label> 
+              <input type ="text" placeholder="Enter Email" name="email" required id="email-input placeholder-one"> 
+            </br>
+              <label for="password" id="label-modal">Password:</br></label>               
+              <input type ="password" placeholder="Enter Password" name="password" required id="pw-input placeholder2"> 
+            </br>
+              <label for="confirm-password" id="label-modal">Confirm-password:</label> 
+              <input type ="password" placeholder="Confirm password" name="confirm-password" required id="confirm-input placeholder3">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="register">Register</button>
+              <button type="button" class="btn btn-primary">Signin</button>
+            </div>
+          </div>
+        </div>
       </div>
+<!-- scripts  for modal-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery.js"></script>     
+<script src="assets/javascript/app.js"></script>
 
-      <div>Sign in
-        <form>
-          Email:<br>
-          <input id="email-input" type="text" name="firstname"><br>
-          Password:<br>
-          <input id="password-input" type="text" name="lastname">
-        </form>
-        <button id="sign-in">Submit</button>
-      </div>
+<!-- scripts  for video api-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/javascript/pixaBay.js"></script>
+<script src="assets/javascript/firebase.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-
-
-
-    <!-- scripts -->
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/javascript/pixaBay.js"></script>
-  <script src="assets/javascript/firebase.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/javascript/pixaBay.js"></script>
-  <script src="Sounds/assets/javascript/script.js"></script>
-  <script>
+<!-- scripts  for video api-->
+<script src="Sounds/assets/javascript/script.js"></script>
+<script>
     
     $(".nav .nav-link").on("click", function(){
       $(".nav").find(".active").removeClass("active");
