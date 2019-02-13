@@ -19,8 +19,8 @@ var videos = [];
 
 $("#sign-in").on("click", function(){
 
-    email = $("#email-input").val();
-    password = $("#password-input").val();
+    email = $("#user-email").val();
+    password = $("#user-pw").val();
     console.log(email);
 
     firebase.auth().onAuthStateChanged(function(user) {
@@ -48,8 +48,9 @@ $("#sign-in").on("click", function(){
 
 $("#new-account").on("click", function(){
 
-    var newEmail = $("#new-email").val();
-    var newPassword = $("#new-password").val();
+    var newEmail = $("#email-input").val();
+    var newPassword = $("#confirm-input").val();
+    
     console.log(newEmail);
 
     firebase.auth().onAuthStateChanged(function(user) {
