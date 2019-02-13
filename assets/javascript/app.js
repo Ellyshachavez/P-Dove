@@ -5,12 +5,12 @@ console.log("connected modal");
     var register = $("#register");
 
     $(document).ready(function(){
-        // $("#user-model").hide();
+        $("#user-model").hide();
     });
 
     button.on("click", function(event) {
       event.preventDefault();
-    //   $("#user-model").show();
+      $("#user-model").show();
 
         
       addUser.on("click", function(register){
