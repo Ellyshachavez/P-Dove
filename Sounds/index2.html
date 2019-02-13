@@ -10,6 +10,20 @@
     <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel = "stylesheet" href = "./assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAXy1zsnkj_nk7fnIMGrWgAIIuOGcwan_M",
+    authDomain: "project-999a2.firebaseapp.com",
+    databaseURL: "https://project-999a2.firebaseio.com",
+    projectId: "project-999a2",
+    storageBucket: "project-999a2.appspot.com",
+    messagingSenderId: "880098285603"
+  };
+  firebase.initializeApp(config);
+</script>
 </head>
 <body>
     <header>
@@ -19,7 +33,10 @@
                       <button class="btn btn-outline-success my-2 my-sm-0" id = "search-it" type="submit">Search</button>
                         <a class="btn btn-outline-success my-2 my-sm-0"
                                 id = "go-back" href="../index.html"> Back to Home!
-                    </a>
+                        </a>
+                        <a class="btn btn-outline-success my-2 my-sm-0"
+                                id = "go-back" href="../favorites.html"> Favorites!
+                        </a>
                     </form>
             </nav>
     </header>
@@ -30,7 +47,6 @@
       </div>
 
   </div>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
