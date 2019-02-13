@@ -8,13 +8,65 @@
   <!-- Bootstrap CSS-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   
-
+  <!-- Semantic UI -->
+  <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/item.min.css">
+ 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 
 
 </head>
 <body>
+
+    <div class="masthead-banner parallax">
+        <div class="row">
+            <div class="col-12">
+                <header class="masthead mb-auto">
+                    <h3 class="masthead-brand">Better Vibes</h3>
+                </header>
+            </div>
+        </div>
+    
+
+
+    <main role="main">
+        <div class="cover-container ">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <h1 class="cover-heading">Better Vibes Creator</h1>
+                    <div>
+                        <ul class="nav nav-pills nav-fill">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="./index.html">Sounds</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./video.html">Videos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./images.html">Images</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./favorites.html">Favorites</a>
+                            </li>
+                        </ul>
+                    </div>
+                        <form class="mx-auto my-auto d-inline w-100">
+                            <div class="input-group">
+                                <input type="text" id="search-me" class="form-control border border-right-0" placeholder="Search images & sounds">
+                                <span class="input-group-append">
+                                    <button class="btn btn-outline-secondary border border-left-0" type="button">
+                                        <i class="fa fa-search" id="search-it">Search</i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+              </div>
+          </div>
+      </main>
+      </div>
+
     <ul class="nav justify-content-end">
         <li class="nav-item">
           <a class="nav-link active" href="#"><div class="inner">
@@ -33,12 +85,12 @@
       </ul>
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
-<<<<<<< HEAD
-=======
+
+
           <div class="inner">
             <h3 class="masthead-brand">Better Vibes</h3>
           </div>
->>>>>>> master
+
         </header>
       
         <main role="main" class="inner cover">
@@ -74,12 +126,12 @@
           </main>
 
 
+
           <div class="ui divided items">
               <div class="item">
                 <div class="ui tiny image" id = "IMG"> </div>
                 <div class="middle aligned content" id = "SONG"> </div>
             </div>
-      
         </div>
 
       
@@ -101,7 +153,7 @@
             </button>
           </div>
           <div class="modal-body">
-<<<<<<< HEAD
+
               <label for="email" id="label-modal"></br>E-Mail:</br></label> 
               <input type ="text" placeholder="Enter Email" name="email" required id="email-input user-email"> 
             </br>
@@ -110,14 +162,14 @@
             </br>
               <label for="confirm-password" id="label-modal hide-pw">Confirm-password:</label> 
               <input type ="password" placeholder="Confirm password" name="confirm-password" required id="confirm-input placeholder-three">
-=======
+
               <label for="email"><b>Username:</b></label> 
               <input type ="text" placeholder="Enter Email" name="email" required id="email-input"> 
               <label for="password"><b>Password</b></label>               
               <input type ="password" placeholder="Enter Password" name="password" required id="pw-input"> 
               <label for="confirm-password"><b>Confirm-password</b></label> 
               <input type ="password" placeholder="Confirm password" name="confirm-password" required id="confirm-input">
->>>>>>> master
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal" id="register">Register</button>

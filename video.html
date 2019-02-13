@@ -1,72 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Better Vibe</title>
-  <!-- Bootstrap CSS-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-  
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Better Vibe</title>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+    <!-- Semantic UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/item.min.css">
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
 
 </head>
+
 <body>
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="masthead mb-auto">
-          <div class="inner">
-            <h3 class="masthead-brand">Better Vibes</h3>
-          </div>
-        </header>
-      
-        <main role="main" class="inner cover">
-          <h1 class="cover-heading">Better Vibes Creator</h1>
-           <div>
-              <ul class="nav nav-pills nav-fill">
-                  <li class="nav-item">
-                    <a class="nav-link" href="./index.html">Sounds</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" href="./video.html">Videos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./images.html">Images</a>
-                  </li>
-                  <li class="nav-item">
-                        <a class="nav-link" href="./favorites.html">Favorites</a>
-                      </li>
-                </ul>
-           </div>
-            <form class="mx- auto my-auto d-inline w-100">
-                <div class="input-group">
-                    <input type="text" id="search-me" class="form-control border border-right-0" placeholder="Search images & sounds">
-                    <span class="input-group-append">
-                    <button class="btn btn-outline-secondary border border-left-0" type="button">
-                        <i class="fa fa-search" id="search-it">Search</i>
-                    </button>
-                  </span>
+        <div class="masthead-banner parallax">
+            <div class="row">
+                <div class="col-12">
+                    <header class="masthead mb-auto">
+                        <h3 class="masthead-brand">Better Vibes</h3>
+                    </header>
                 </div>
-            </form>
-          </main>
+            </div>
+        
 
-          <div id="pixaVid"></div>
-         
 
-      
-        <footer class="mastfoot mt-auto">
-          <div class="inner">
-            <p>2019 Better Vibes Copyright</p>
-          </div>
-        </footer>
-      </div>
+        <main role="main">
+            <div class="cover-container ">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <h1 class="cover-heading">Better Vibes Creator</h1>
+                        <div>
+                            <ul class="nav nav-pills nav-fill">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./index.html">Sounds</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./video.html">Videos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./images.html">Images</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./favorites.html">Favorites</a>
+                                </li>
+                            </ul>
+                        </div>
+                            <form class="mx-auto my-auto d-inline w-100">
+                                <div class="input-group">
+                                    <input type="text" id="search-me" class="form-control border border-right-0" placeholder="Search images & sounds">
+                                    <span class="input-group-append">
+                                        <button class="btn btn-outline-secondary border border-left-0" type="button">
+                                            <i class="fa fa-search" id="search-it">Search</i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                 </div>
+            </div>
+         </main>
+        </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+            <div class="video video-layout">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="pixaVid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  
+
+
+
+
+         <footer class="footer">
+                <div class="container">
+                    <p>2019 Better Vibes Copyright</p>
+                </div>
+         </footer> 
+                
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+
+
 
     <!-- scripts -->
 
@@ -74,12 +101,13 @@
     <script src="assets/javascript/pixaBay.js"></script>
     <script src="Sounds/assets/javascript/script.js"></script>
     <script>
-    
-    $(".nav .nav-link").on("click", function(){
-      $(".nav").find(".active").removeClass("active");
-      $(this).addClass("active");
-    });
+
+        $(".nav .nav-link").on("click", function () {
+            $(".nav").find(".active").removeClass("active");
+            $(this).addClass("active");
+        });
 
     </script>
 </body>
+
 </html>
