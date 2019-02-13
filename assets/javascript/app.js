@@ -6,12 +6,6 @@ console.log("connected modal");
     var confirmPw = $("#hide-pw")
 
     $(document).ready(function(){
-<<<<<<< HEAD
-        confirmPw.hide();
-        button.on("click", function(event) {
-            event.preventDefault();
-         
-=======
         $("#user-model").hide();
     });
 
@@ -30,7 +24,6 @@ console.log("connected modal");
         console.log($confirm);
       })
 
->>>>>>> master
       
               
             register.on("click", function(register){
@@ -47,6 +40,5 @@ console.log("connected modal");
             
       
           });
-    });
 
     
