@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   $("#search-it").on("click", (event)=>{
     event.preventDefault();
     var searchQuery = $("#search-me").val()
@@ -14,16 +13,16 @@ $(document).ready(function() {
   }).then(function(response) {
     console.log(response)
     $(".items").empty();
-newArr = [];
-//putting the main piece of the object generated from API into a smaller object
-  for(var ii=0; ii<10; ii++){
-    var tempArr = {
-      image: response.results[ii].image,
-      name: response.results[ii].name,
-      previewURL : response.results[ii].tracks[0].audio,
-    }
+    newArr = [];
+    //putting the main piece of the object generated from API into a smaller object
+    for(var ii=0; ii<10; ii++){
+      var tempArr = {
+        image: response.results[ii].image,
+        name: response.results[ii].name,
+        previewURL : response.results[ii].tracks[0].audio,
+      }
     newArr.push(tempArr)
-  
+    
 };
 console.log(newArr)
 
@@ -36,7 +35,7 @@ var item = $('<div class="card" style="width: 30rem; float:left">');
   var songReady = $("<div>").addClass("middle aligned content")
   songReady.append(newSong);
 
-  var favorites = $("<button>")
+  var favorites = $("<button id='addAudio' onClick='testAudio()'>")
   favorites.addClass("favbutton")
   favorites.text("Add.")
   favorites.attr("url", element.previewURL)
@@ -64,7 +63,7 @@ var item = $('<div class="card" style="width: 30rem; float:left">');
     });
   });
 
-  var database = firebase.database();
+  // var database = firebase.database();
 
   let favSONG = {
     url: ($(this).attr("url")),
@@ -91,18 +90,39 @@ var item = $('<div class="card" style="width: 30rem; float:left">');
           name: name,
           img: img,
         };
-      // Firebase watcher + initial loader HINT: .on("value")
-      database.ref().push(newFav) 
-        'value',
-        function(snapshot) {
-          // Log everything that's coming out of snapshot
-          console.log(snapshot.val());
 
       $("#url").val("")
       $("#name").val("")
       $("#img").val("")
 
-    };
   });
 });
+
+
+// function testAudio(){
+//   var audio = [];
+//   firebase.auth().onAuthStateChanged(function(user) {
+//     if (user) {
+//       // User is signed in.
+//       userId = user.uid;
+//       // ...
+//     } else {
+//       // User is signed out.
+//       console.log("ERROR!");
+//       console.log(user);
+//       // ...
+//     }
+//   });
+//   var audioData = {
+//     url: $(this).attr("url"),
+//     image: $(this).attr("img"),
+//     name: $(this).attr("name")
+//   } // Needs to add video
+  
+//   audio.push(audioData);
+//   console.log(audioData);
+//   console.log("HERE");
+//   writeUserData(userId, audio);
+//   console.log(audio + "   1");
+// }
 
