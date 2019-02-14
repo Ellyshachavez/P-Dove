@@ -14,113 +14,134 @@
  
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
-
 </head>
 <body>
-
     <div class="masthead-banner parallax">
         <div class="row">
             <div class="col-12">
                 <header class="masthead mb-auto">
-                    <!-- <h3 class="masthead-brand">Better Vibes</h3> -->
                     <a class="nav-link active masthead-brand" href="./index.html"><h3>Better Vibes</h3></a>
                     <a class="nav-link active masthead-brand" data-toggle="modal" data-target="#user-model"><h3 id="sticky">Sign-in</h3></a>
                     
                   </header>
             </div>
         </div>
-
-    <main role="main">
-        <div class="cover-container ">
-            <div class="row d-flex justify-content-center">
+        <main role="main">
+            <div class="cover-container ">
+              <div class="row d-flex justify-content-center">
                 <div class="col-md-8 ml-auto mr-auto">
-                    <h1 class="cover-heading">Better Vibes Creator</h1>
-                    <div>
-                        <ul class="nav nav-pills nav-fill">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="./Sounds/index2.html">Sounds</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./video.html">Videos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./images.html">Images</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./favorites.html">Favorites</a>
-                            </li>
-                        </ul>
-                    </div>
-                        <form class="mx-auto my-auto d-inline w-100">
-                            <div class="input-group">
-                                <input type="text" id="search-me" class="form-control border border-right-0" placeholder="Search images & sounds">
-                                <span class="input-group-append">
-                                    <button class="btn btn-outline-secondary border border-left-0" type="button">
-                                        <i class="fa fa-search" id="search-it">Search</i>
-                                    </button>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
+                  <h1 class="cover-heading">Better Vibes Creator</h1>
+                  <div>
+                    <ul class="nav nav-pills nav-fill">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="./index.html">Sounds</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="./video.html">Videos</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="./images.html">Images</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="./favorites.html">Favorites</a>
+                      </li>
+                    </ul>
+                  </div>
+                    <form class="mx-auto my-auto d-inline w-100">
+                      <div class="input-group">
+                        <input type="text" id="search-me" class="form-control border border-right-0" placeholder="Search images & sounds">
+                        <span class="input-group-append">
+                          <button class="btn btn-outline-secondary border border-left-0" type="button">
+                            <i class="fa fa-search" id="search-it">Search</i>
+                          </button>
+                        </span>
+                      </div>
+                    </form>
+                  </div>
+               </div>
+             </div>
+           </main>
+           </div>
+           
+           <div class="container-fluid">
+             <div class="row">
+               <div class="col">
+                 <div class="video video-layout">
+                  <div class="ui divided items" id="margin">
+                    <div class="item">
+                     <div class="ui tiny image" id = "IMG"> </div>
+                     <div class="middle aligned content" id = "SONG"> </div>
+                   </div>
+                 </div>
+               </div>
               </div>
+             </div>
+            </div>
+        <!-- FOOTER -->
+         <footer class="mastfoot">
+          <div class="inner pt-4">
+           <p>&copy; 2019 Better Vibes</p>
           </div>
-      </main>
-      </div>
-
-<!-- Signin Register Modal -->
+         </footer>
+         <!-- Signin Register Modal -->
 <div class="modal fade" id="user-model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title label-modal" id="exampleModalCenterTitle">Sign in or Register</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-              <label for="email" class="label-modal" id="label-modal">E-Mail:</br></label> 
-              <input type ="text" placeholder="Enter Email" name="email" required id="email-input user-email"> 
-            </br>
-              <label for="password" class="label-modal">Password:</br></label>               
-              <input type ="password" placeholder="Enter Password" name="password" required id="pw-input user-pw"> 
-            </br>
-              <label for="confirm-password" class="label-modal" id="hide-pw">Confirm-password:</label> 
-              <input type ="password" placeholder="Confirm password" name="confirm-password" required id="confirm-input placeholder-three">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title label-modal" id="exampleModalCenterTitle">Sign in or Register</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <label for="confirm-password" class="label-modal" id="user-name">Name:</label> 
+            <input type ="text" placeholder="Full Name" name="fullname" required id="confirm-input placeholder-three">
+          </br>
 
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="register">Register</button>
-              <button type="button" class="btn btn-primary" id="user">Signin</button>
-            </div>
+          
+            <label for="email" class="label-modal" id="label-modal">E-Mail:</br></label> 
+            <input type ="text" placeholder="Enter Email" name="email" required id="email-input"> 
+          </br>
+            <label for="password" class="label-modal">Password:</br></label>               
+            <input type ="password" placeholder="Enter Password" name="password" required id="pw-input"> 
+          </br>
+        </div>
+            
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="register">Register</button>
+            <button type="button" class="btn btn-primary" id="user">Signin</button>
           </div>
         </div>
       </div>
-  <!-- scripts for modal-->
-  <script src="https://code.jquery.com/jquery.js"></script>     
-  <script src="assets/javascript/app.js"></script>
+    </div>
+<!-- scripts for modal-->
+<script src="https://code.jquery.com/jquery.js"></script>     
+<script src="assets/javascript/app.js"></script>
 
-  <!-- scripts for video api-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/javascript/pixaBay.js"></script>
+<!-- scripts for video api-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/javascript/pixaBay.js"></script>
 
-  <!-- scripts for firebase -->
-  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-  <script src="assets/javascript/firebase.js"></script>
+<!-- scripts for firebase -->
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script src="assets/javascript/firebase.js"></script>
 
-  <!-- scripts for video api-->
-  <script src="Sounds/assets/javascript/script.js"></script>
+<!-- scripts for video api-->
+<script src="Sounds/assets/javascript/script.js"></script>
 <script>
-    
-    $(".nav .nav-link").on("click", function(){
-      $(".nav").find(".active").removeClass("active");
-      $(this).addClass("active");
-    });
+    $(document).ready(function(){
+      $(".video-layout")
+  });
 
-    </script>
+  $(".nav .nav-link").on("click", function(){
+    $(".nav").find(".active").removeClass("active");
+    $(this).addClass("active");
+  });
+
+  </script>
 
 </body>
 </html>

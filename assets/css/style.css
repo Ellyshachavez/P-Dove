@@ -1,4 +1,3 @@
-
 /*
  * Globals
  */
@@ -155,9 +154,9 @@ h3 {
   0 16px 24px 2px rgba(0, 0, 0, .14),
   0 6px 30px 5px rgba(0, 0, 0, .12),
   0 8px 10px -5px rgba(0, 0, 0, .2);
-  height: 500px;
+  height: 100%;
   margin: 80px;
-  /* justify-content: center; */
+  justify-content: center;
 
 }
 
@@ -175,12 +174,19 @@ h3 {
 /*
  * Footer
  */
-.mastfoot {
-  color: rgba(255, 255, 255, .5);
-  text-align: center;
-  position: fixed;
-}
 
+ .mastfoot {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  color: rgba(85, 85, 85, 0.623);
+  /* color: rgba(255, 255, 255, 0.226); */
+  background-color: #f5f5f5;
+  text-align: center;
+ }
+
+ /* modal */
 #sticky {
   padding-left: 68em;
   position: sticky
@@ -195,4 +201,10 @@ input {
 
 #label-modal {
   color: black;
+}
+
+/* bootstrap cards */
+#margin {
+  margin: 10px;
+
 }

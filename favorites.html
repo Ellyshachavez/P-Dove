@@ -80,19 +80,12 @@
                 <div class="middle aligned content" id = "SONG"> </div>
             </div>
          </div>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Free Sounds</title>
     <link rel = "stylesheet" href = "../P-Dove/Sounds/assets/css/reset.css">
-    <link rel = "stylesheet" href = "../P-Dove/Sounds/assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <script src="../P-Dove/Sounds/assets/javascript/script.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
+
     <header>
         <nav class="navbar navbar-light bg-light">
                 <form class="form-inline">
@@ -115,50 +108,6 @@
 <div class = "body1">
     <div class="ui divided items" id="favpage">
 </div>
-
-
-<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-<script>
-  var config = {
-    apiKey: "AIzaSyAXy1zsnkj_nk7fnIMGrWgAIIuOGcwan_M",
-    authDomain: "project-999a2.firebaseapp.com",
-    databaseURL: "https://project-999a2.firebaseio.com",
-    projectId: "project-999a2",
-    storageBucket: "project-999a2.appspot.com",
-    messagingSenderId: "880098285603"
-  };
-  firebase.initializeApp(config);
-  var database = firebase.database();
-
-  firebase.database().ref().on("child_added", (snapshot) => {
-  
-  
-      var item1 = $("<div>").addClass("item")
-
-      var newSong1 = $("<audio controls>")
-      newSong1.append($("<source>").attr("src", snapshot.val().url));
-      var songReady1 = $("<div>").addClass("middle aligned content")
-      songReady1.append(newSong1);
-    
-    
-      var newPic1 = $("<img>").attr("src", snapshot.val().img);
-      var imgReady1 = $("<div>").addClass("ui tiny image")
-      imgReady1.append(newPic1);
-    
-    
-      var texT1 = $("<h3>").text(snapshot.val().name)
-      var textBox1 = $("<div>").addClass("ui black1 message")
-      textBox1.append(texT1);
-    
-     item1.append(imgReady1);
-     item1.append(songReady1);
-     item1.append(textBox1);
-
-     console.log(item1)
-    
-      $("#favpage").prepend(item1);
-  });
-</script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
 <!-- scripts for modal-->

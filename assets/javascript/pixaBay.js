@@ -26,7 +26,6 @@ $(document).ready(function() {
                 console.log(response.hits[i].videos.large.url);
                 var div = card.append($video)
                 $("#pixaVid").append(div);
-
             }
         });
     });
