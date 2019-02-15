@@ -7,122 +7,199 @@ $(document).ready(function() {
     var userKey = "27b3657c"
     var queryURL = "https://api.jamendo.com/v3.0/albums/tracks/?client_id=" + userKey + "&format=jsonpretty&track_name=" + searchQuery  
    
-  $.ajax({
-      url: queryURL,
-      methed: "GET"
-  }).then(function(response) {
-    console.log(response)
-    $(".items").empty();
-    newArr = [];
-    //putting the main piece of the object generated from API into a smaller object
-    for(var ii=0; ii<10; ii++){
-      var tempArr = {
-        image: response.results[ii].image,
-        name: response.results[ii].name,
-        previewURL : response.results[ii].tracks[0].audio,
-      }
-    newArr.push(tempArr)
-    
-};
-console.log(newArr)
+    $.ajax({
+        url: queryURL,
+        methed: "GET"
+    }).then(function(response) {
+      console.log(response)
+      $(".items").empty();
+      newArr = [];
+      //putting the main piece of the object generated from API into a smaller object
+      for(var ii=0; ii<10; ii++){
+        var tempArr = {
+          image: response.results[ii].image,
+          name: response.results[ii].name,
+          previewURL : response.results[ii].tracks[0].audio,
+        }
+        newArr.push(tempArr)
+      };
 
-newArr.forEach((element) => {
+      console.log(newArr)
+      newArr.forEach((element) => {
 
-var item = $('<div class="card" style="width: 30rem; float:left">');
+        var item = $('<div class="card" style="width: 30rem; float:left">');
 
-  var newSong = $("<audio controls>")
-  newSong.append($("<source>").attr("src", element.previewURL));
-  var songReady = $("<div>").addClass("middle aligned content")
-  songReady.append(newSong);
+        var newSong = $("<audio controls>")
+        newSong.append($("<source>").attr("src", element.previewURL));
+        var songReady = $("<div>").addClass("middle aligned content")
+        songReady.append(newSong);
 
-  var favorites = $("<button id='addAudio' onClick='testAudio()'>")
-  favorites.addClass("favbutton")
-  favorites.text("Add.")
-  favorites.attr("url", element.previewURL)
-  favorites.attr("img", element.image)
-  favorites.attr("name", element.name)
-
-
-  var newPic = $("<img>").attr("src", element.image);
-  var imgReady = $("<div>").addClass("ui tiny image")
-  imgReady.append(newPic);
+        var favorites = $("<button id='addAudio'>") //onClick='testAudio()'
+        favorites.addClass("favbutton")
+        favorites.text("Add.")
+        favorites.attr("url", element.previewURL)
+        favorites.attr("img", element.image)
+        favorites.attr("name", element.name)
 
 
-  var texT = $("<h3>").text(element.name)
-  var textBox = $("<div>").addClass("ui black message")
-  textBox.append(texT);
+        var newPic = $("<img>").attr("src", element.image);
+        var imgReady = $("<div>").addClass("ui tiny image")
+        imgReady.append(newPic);
 
- item.append(imgReady);
- item.append(songReady);
- item.append(favorites);
- item.append(textBox);
 
-  $(".items").prepend(item);
+        var texT = $("<h3>").text(element.name)
+        var textBox = $("<div>").addClass("ui black message")
+        textBox.append(texT);
+
+        item.append(imgReady);
+        item.append(songReady);
+        item.append(favorites);
+        item.append(textBox);
+
+        $(".items").prepend(item);
 
       });
     });
   });
-
-  // var database = firebase.database();
-
   let favSONG = {
-    url: ($(this).attr("url")),
-    img: ($(this).attr("img")),
-    name: ($(this).attr("name"))
+    url: $(this).attr("url"),
+    img: $(this).attr("img"),
+    name: $(this).attr("name")
   };
-      // Initial Values
-      var url = '';
-      var img = '';
-      var name = '';
+  // Initial Values
+  var url = '';
+  var img = '';
+  var name = '';
 
-      // Capture Button Click
-      $(document).on("click", ".favbutton", function() {
-        event.preventDefault();
+  // Capture Button Click
+  $(document).on("click", ".favbutton", function() {
+    event.preventDefault();
+    // Grabbed values from text-boxes
+    url = $(this).attr("url"),
+    name = $(this).attr("name"),
+    img =  $(this).attr("img")
+    // Code for "Setting values in the database"
+    var newFav = {
+      url: url,
+        name: name,
+        img: img,
+    };
 
-        // Grabbed values from text-boxes
-        url = ($(this).attr("url")),
-        name = $(this).attr("name"),
-        img =  $(this).attr("img")
-    
-        // Code for "Setting values in the database"
-      var newFav = {
-          url: url,
-          name: name,
-          img: img,
-        };
-
-      $("#url").val("")
-      $("#name").val("")
-      $("#img").val("")
-
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log(user.uid);
+        userId=user.uid;
+      }
+      firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+        console.log(snapshot.val());
+      });
+    });
+    audio.push(newFav);
+    writeUserData(userId,videos,audio);
+    console.log(audio);
+    $("#url").val("")
+    $("#name").val("")
+    $("#img").val("")
   });
 });
 
 
-// function testAudio(){
-//   var audio = [];
-//   firebase.auth().onAuthStateChanged(function(user) {
-//     if (user) {
-//       // User is signed in.
-//       userId = user.uid;
-//       // ...
-//     } else {
-//       // User is signed out.
-//       console.log("ERROR!");
-//       console.log(user);
-//       // ...
-//     }
-//   });
-//   var audioData = {
-//     url: $(this).attr("url"),
-//     image: $(this).attr("img"),
-//     name: $(this).attr("name")
-//   } // Needs to add video
-  
-//   audio.push(audioData);
-//   console.log(audioData);
-//   console.log("HERE");
-//   writeUserData(userId, audio);
-//   console.log(audio + "   1");
-// }
+// $(document).ready(function() {
 
+//   $("#search-it").on("click", (event)=>{
+//     event.preventDefault();
+//     var searchQuery = $("#search-me").val()
+//     console.log(searchQuery)
+//     var userKey = "27b3657c"
+//     var queryURL = "https://api.jamendo.com/v3.0/albums/tracks/?client_id=" + userKey + "&format=jsonpretty&track_name=" + searchQuery  
+   
+//   $.ajax({
+//       url: queryURL,
+//       methed: "GET"
+//   }).then(function(response) {
+//     console.log(response)
+//     $(".items").empty();
+//     newArr = [];
+//     //putting the main piece of the object generated from API into a smaller object
+//     for(var ii=0; ii<10; ii++){
+//       var tempArr = {
+//         image: response.results[ii].image,
+//         name: response.results[ii].name,
+//         previewURL : response.results[ii].tracks[0].audio,
+//       }
+//     newArr.push(tempArr)
+    
+// };
+// console.log(newArr)
+
+// newArr.forEach((element) => {
+
+// var item = $('<div class="card" style="width: 30rem; float:left">');
+
+//   var newSong = $("<audio controls>")
+//   newSong.append($("<source>").attr("src", element.previewURL));
+//   var songReady = $("<div>").addClass("middle aligned content")
+//   songReady.append(newSong);
+
+//   var favorites = $("<button id='addAudio' onClick='testAudio()'>")
+//   favorites.addClass("favbutton")
+//   favorites.text("Add.")
+//   favorites.attr("url", element.previewURL)
+//   favorites.attr("img", element.image)
+//   favorites.attr("name", element.name)
+
+
+//   var newPic = $("<img>").attr("src", element.image);
+//   var imgReady = $("<div>").addClass("ui tiny image")
+//   imgReady.append(newPic);
+
+
+//   var texT = $("<h3>").text(element.name)
+//   var textBox = $("<div>").addClass("ui black message")
+//   textBox.append(texT);
+
+//  item.append(imgReady);
+//  item.append(songReady);
+//  item.append(favorites);
+//  item.append(textBox);
+
+//   $(".items").prepend(item);
+
+//       });
+//     });
+//   });
+
+//   // var database = firebase.database();
+
+//   let favSONG = {
+//     url: ($(this).attr("url")),
+//     img: ($(this).attr("img")),
+//     name: ($(this).attr("name"))
+//   };
+//       // Initial Values
+//       var url = '';
+//       var img = '';
+//       var name = '';
+
+//       // Capture Button Click
+//       $(document).on("click", ".favbutton", function() {
+//         event.preventDefault();
+
+//         // Grabbed values from text-boxes
+//         url = ($(this).attr("url")),
+//         name = $(this).attr("name"),
+//         img =  $(this).attr("img")
+    
+//         // Code for "Setting values in the database"
+//       var newFav = {
+//           url: url,
+//           name: name,
+//           img: img,
+//         };
+
+//       $("#url").val("")
+//       $("#name").val("")
+//       $("#img").val("")
+
+//   });
+// });

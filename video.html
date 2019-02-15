@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +7,15 @@
     <title>Better Vibe</title>
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-
     <!-- Semantic UI -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/item.min.css">
-
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
-
 </head>
-
 <body>
         <div class="masthead-banner parallax">
             <div class="row">
@@ -30,6 +23,7 @@
                     <header class="masthead mb-auto">
                         <!-- <h3 class="masthead-brand">Better Vibes</h3> -->
                         <a class="nav-link active masthead-brand" href="./index.html"><h3>Better Vibes</h3></a>
+                        <a class="nav-link active masthead-brand" data-toggle="modal" data-target="#user-model"><h3 id="sticky">Sign-in</h3></a>
                     </header>
                 </div>
             </div>
@@ -69,17 +63,68 @@
             </div>
          </main>
         </div>
-        <div id="pixaVid"></div>
-         <footer class="footer">
-                <div class="container">
-                    <p>2019 Better Vibes Copyright</p>
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <div class="video video-layout">
+                 <div id="margin">
+                   <div class="item">
+                    <div id = "IMG"> </div>
+                    <div class="middle aligned content" id = "SONG">
+                        <div class="card-columns" id="pixaVid">
+                        </div>
+                    </div>
+                  </div>
                 </div>
-         </footer>
+              </div>
+             </div>
+            </div>
+           </div>
+        <div id="pixaVid"></div>
+      
+
+         <!-- FOOTER -->
+     <footer class="mastfoot">
+        <div class="inner pt-4">
+         <p>&copy; 2019 Better Vibes</p>
+        </div>
+       </footer>
+
+       <!-- Signin Register Modal -->
+<div class="modal fade" id="user-model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title label-modal" id="exampleModalCenterTitle">Sign in or Register</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <label for="confirm-password" class="label-modal" id="user-name">Name:</label> 
+            <input type ="text" placeholder="Full Name" name="fullname" required id="confirm-input">
+          </br>
+
+          
+            <label for="email" class="label-modal" id="label-modal">E-Mail:</br></label> 
+            <input type ="text" placeholder="Enter Email" name="email" required id="email-input"> 
+          </br>
+            <label for="password" class="label-modal">Password:</br></label>               
+            <input type ="password" placeholder="Enter Password" name="password" required id="pw-input"> 
+          </br>
+        </div>
+            
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="register">Register</button>
+            <button type="button" class="btn btn-primary" id="user">Signin</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
     <!-- scripts for modal-->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="assets/javascript/app.js"></script>
 
     <!-- scripts for video api-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -92,13 +137,16 @@
     <!-- scripts for video api-->
     <script src="Sounds/assets/javascript/script.js"></script>
     <script>
-
-        $(".nav .nav-link").on("click", function () {
+            $(document).ready(function(){
+              $(".video-layout").hide();
+          });
+        
+          $(".nav .nav-link").on("click", function(){
             $(".nav").find(".active").removeClass("active");
             $(this).addClass("active");
-        });
-
-    </script>
+          });
+        
+          </script>
 </body>
 
 </html>
