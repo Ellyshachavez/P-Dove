@@ -14,7 +14,7 @@ $(document).ready(function() {
        }).then(function(response){
            for(var i = 0; i < 6; i++){
 
-               var card = $('<div class="card" style="width: 300px;">');
+            var card = $('<div class="card" style="width: 30rem; float:left">');
                var $image = $("<img>");
                $image.attr("width", 310);
                $image.attr("height", 180);
